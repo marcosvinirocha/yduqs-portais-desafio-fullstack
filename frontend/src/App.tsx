@@ -1,11 +1,14 @@
-// import { useState } from 'react'
+import { Route, Routes } from 'react-router-dom';
+import Home from './routes/Home';
+import Navbar from './components/Navbar';
 
 function App() {
-  // const [count, setCount] = useState(0)
-
   return (
     <>
-      <h1 className='text-3xl font-bold underline'>Hello CodeSandbox</h1>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<Home />} />
+      </Routes>
     </>
   );
 }
