@@ -1,3 +1,4 @@
+import { Info, X } from 'lucide-react';
 import React from 'react';
 
 interface DrawerProps {
@@ -65,26 +66,21 @@ const Drawer: React.FC<DrawerProps> = ({
                 className='text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded p-1'
                 aria-label='Fechar drawer'
               >
-                <svg
-                  xmlns='http://www.w3.org/2000/svg'
-                  className='h-6 w-6'
-                  fill='none'
-                  viewBox='0 0 24 24'
-                  stroke='currentColor'
-                >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M6 18L18 6M6 6l12 12'
-                  />
-                </svg>
+                <X />
               </button>
             </div>
           )}
 
           {/* Conteúdo */}
-          {isinfo && <div className='h-[150px] w-full bg-blue-700'></div>}
+          {isinfo && (
+            <div className='h-[150px] w-full bg-blue-700 flex flex-col items-start px-4 justify-center'>
+              <Info className='text-white' />
+              <span className='font-sans text-1xl text-white mt-2'>
+                Inscreva-se para saber tudo sobre os valores e garantir a sua
+                vaga!
+              </span>
+            </div>
+          )}
           <div className='flex-1 px-4 py-4 md:px-8 md:py-6 overflow-y-auto'>
             {children}
           </div>

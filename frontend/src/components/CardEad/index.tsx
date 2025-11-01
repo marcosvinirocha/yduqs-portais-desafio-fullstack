@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Info } from 'lucide-react';
+import { Info, Plus } from 'lucide-react';
 import Drawer from '../ui/drawer';
 // import { FinanceEadDrawer } from '../FinanceEadDrawer';
 
@@ -46,8 +46,22 @@ export default function CardEad() {
         isinfo={true}
         title='Mais Detalhes'
       >
-        <div className='h-96 bg-gray-100 flex items-center justify-center'>
-          Este é o conteúdo do drawer.
+        <div className='h-96 bg-gray-100'>
+          <div className='pb-6'>
+            <div className=' px-4 py-4 md:pt-8 md:pb-6 flex justify-between items-center'>
+              <span>Sobre a Bolsa Incentivo</span>
+              <Plus />
+            </div>
+            <div className=' px-4 py-4 md:pt-8 md:pb-6 flex justify-between items-center'>
+              <span>Resumo das suas escolhas</span>
+              <Plus />
+            </div>
+          </div>
+          <div className='space-x-4'>
+            <button className='w-full bg-rose-500 hover:bg-pink-700 text-white font-bold py-3 rounded-lg transition duration-300 shadow-md'>
+              Avançar
+            </button>
+          </div>
         </div>
       </Drawer>
     </div>

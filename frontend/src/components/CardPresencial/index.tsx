@@ -88,19 +88,23 @@ export default function CardPresencial() {
             <ParcelasTable parcelas={payments} />
           </div>
 
-          <div className='pb-6'>
-            <div className=' px-4 py-4 md:pt-8 md:pb-6 flex justify-between items-center'>
-              <span>Sobre a Bolsa Incentivo</span>
-              <Plus />
+          <div className='pb-6 flex flex-col justify-between'>
+            <div>
+              <div className=' px-4 py-4 md:pt-8 md:pb-6 flex justify-between items-center'>
+                <span>Sobre a Bolsa Incentivo</span>
+                <Plus />
+              </div>
+              <div className=' px-4 py-4 md:pt-8 md:pb-6 flex justify-between items-center'>
+                <span>Resumo das suas escolhas</span>
+                <Plus />
+              </div>
             </div>
-            <div className=' px-4 py-4 md:pt-8 md:pb-6 flex justify-between items-center'>
-              <span>Resumo das suas escolhas</span>
-              <Plus />
-            </div>
+
+            <div className='space-y-4' />
+            <button className='w-full bg-rose-500 hover:bg-pink-700 text-white font-bold py-4 px-4 md:px-6 md:py-4 rounded-lg transition duration-300 shadow-md'>
+              Avançar
+            </button>
           </div>
-          <button className='w-full bg-rose-500 hover:bg-pink-700 text-white font-bold py-3 rounded-lg transition duration-300 shadow-md'>
-            Avançar
-          </button>
         </div>
       </Drawer>
     </div>
