@@ -1,88 +1,284 @@
-# 🚀 Desafio Fullstack – Processo Seletivo
+# 🚀 Desafio Fullstack YDUQS Portais
 
-Bem-vindo(a)! Este é o repositório base para o **Desafio Fullstack** da nossa etapa de seleção de novos colaboradores.
+<p align="center">
+  <img src="https://nestjs.com/img/logo-small.svg" width="120" alt="NestJS Logo" />
+  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" width="100" alt="React Logo" />
+</p>
 
----
-
-## 🎯 Objetivo
-
-Construir uma aplicação **fullstack** onde usuários podem visualizar ofertas de cursos, selecionar um curso e realizar a matrícula.
-
-O **handoff de design** está disponível no Figma:  
-🔗 [Acessar Figma](https://www.figma.com/design/jJLBqZG5RLoL9pbviYvAZW/Teste---Desenvolvimento?node-id=8-2156&t=FjZv9T176fS24B4e-0)  
-🔑 **Senha:** `Teste-123`
+<p align="center">Aplicação fullstack para o Desafio YDUQS Portais - Plataforma de gerenciamento de cursos e matrículas</p>
 
 ---
 
-## 🛠️ Requisitos
+## 📋 Índice
 
-### Backend (Node.js + TypeScript)
-- Framework: **NestJS**  
-- Banco de dados: **PostgreSQL ou MongoDB**  
-- Estrutura em camadas (**controllers, services, repositories**)  
-- Validações de entrada (ex.: email válido, campos obrigatórios)  
-- Documentação da API (**Swagger ou similar**)  
-- Testes automatizados (**unitários e integração**)  
-
-### Frontend (React + TypeScript)
-- Framework: **React**  
-- Gerenciamento de estado: **Context API**  
-- Validações de formulário (email, telefone, etc.)  
-- Feedback ao usuário (**loading, erros, sucesso**)  
-- Design responsivo  
-- Testes com **React Testing Library**
-
-### Extras (opcional, diferencial)
-- Banco em **Docker** com migrations (**Prisma, TypeORM ou Sequelize**)  
-- Logs estruturados  
-- Uso de bibliotecas de UI como **shadcn/ui**, **Material UI (MUI)**, **Chakra UI** ou outras similares para acelerar o desenvolvimento do frontend
-  
----
-
-## ✅ Regras Importantes
-
-1. **Commits**: queremos acompanhar sua **evolução e raciocínio lógico**.  
-   - Faça **commits pequenos e frequentes**, mostrando sua linha de pensamento.  
-   - Não envie tudo em **um único commit final**.
-
-2. **Uso de IA**: você pode usar IA como **fonte de consulta**, mas **não é permitido** gerar **100% do projeto apenas com IA**. Queremos ver **seu raciocínio e implementação**.
+- [Sobre o Projeto](#-sobre-o-projeto)
+- [Tecnologias Utilizadas](#-tecnologias-utilizadas)
+- [Estrutura do Projeto](#-estrutura-do-projeto)
+- [Pré-requisitos](#-pré-requisitos)
+- [Configuração do Ambiente](#-configuração-do-ambiente)
+- [Executando a Aplicação](#-executando-a-aplicação)
+- [Testes](#-testes)
+- [Documentação da API](#-documentação-da-api)
+- [Padrões de Arquitetura](#-padrões-de-arquitetura)
+- [Contribuição](#-contribuição)
 
 ---
 
-## 📊 Critérios de Avaliação
+## 🎯 Sobre o Projeto
 
-- **Qualidade do código** → clareza, boas práticas, clean code.  
-- **Arquitetura** → separação de responsabilidades, escalabilidade.  
-- **Validações e UX** → feedback claro ao usuário para erros e sucesso.  
-- **Testes** → cobertura e qualidade dos testes.  
-- **Documentação** → README explicando o setup.  
+Esta é uma aplicação fullstack desenvolvida como parte do processo seletivo da YDUQS. O objetivo é construir uma plataforma onde os usuários podem visualizar ofertas de cursos, selecionar um curso e realizar a matrícula. O projeto é composto por um backend em NestJS e um frontend em React, com banco de dados PostgreSQL.
 
----
-
-## ▶️ Como começar
-
-1. Faça um **fork** deste repositório para a sua conta GitHub.  
-   - Clique no botão **Fork** no canto superior direito desta página.  
-   - Isso criará uma cópia do repositório no seu perfil.  
-
-2. Clone o repositório que você acabou de forkear para a sua máquina local:  
-   ```bash
-   git clone https://github.com/<seu-usuario>/yduqs-portais-desafio-fullstack.git
-   ```
-
-3. Acesse a pasta do projeto:  
-   ```bash
-   cd yduqs-portais-desafio-fullstack
-   ```
-
-4. Configure e rode o **backend** e o **frontend** de acordo com os requisitos definidos.  
-
-5. Desenvolva sua solução fazendo **commits pequenos e frequentes**, para que possamos acompanhar sua linha de raciocínio e evolução.  
-
-6. Ao finalizar, envie o **link do seu fork** para avaliação.  
-   - Exemplo: `https://github.com/<seu-usuario>/yduqs-portais-desafio-fullstack`
+**Recursos principais:**
+- Autenticação e gerenciamento de usuários
+- Sistema de cadastro com validação rigorosa de dados
+- Interface responsiva para visualização de cursos e matrículas
+- API RESTful bem documentada
+- Testes automatizados (unitários e de integração)
 
 ---
 
-Boa sorte! 🚀  
-Estamos ansiosos para ver sua solução.
+## 🛠️ Tecnologias Utilizadas
+
+### Backend
+- **Node.js** (v18+)
+- **NestJS** - Framework para aplicações Node.js escaláveis
+- **TypeScript** - Superset do JavaScript com tipagem estática
+- **PostgreSQL** - Banco de dados relacional
+- **Prisma** - ORM com migrations
+- **Swagger** - Documentação interativa da API
+- **Jest** - Framework de testes
+- **Docker** - Contêinerização de serviços
+
+### Frontend
+- **React** (v19) - Biblioteca para construção de interfaces
+- **TypeScript** - Tipagem estática para melhor manutenibilidade
+- **Vite** - Ferramenta de build rápida
+- **Tailwind CSS** - Framework de estilização utilitário
+- **Redux Toolkit** - Gerenciamento de estado
+- **React Router DOM** - Navegação entre páginas
+- **Axios** - Cliente HTTP para chamadas à API
+
+---
+
+## 🏗️ Estrutura do Projeto
+
+```
+yduqs-portais-desafio-fullstack/
+├── backend/              # API REST com NestJS
+│   ├── src/
+│   │   ├── app.module.ts
+│   │   ├── user/         # Módulo de gerenciamento de usuários
+│   │   ├── db/           # Configuração do banco de dados
+│   │   └── main.ts
+│   ├── prisma/           # Configuração do Prisma e migrations
+│   ├── test/             # Testes unitários e e2e
+│   └── docker-compose.yml
+└── frontend/             # Aplicação React
+    ├── src/
+    │   ├── components/   # Componentes reutilizáveis
+    │   ├── pages/        # Páginas da aplicação
+    │   ├── store/        # Configuração do Redux
+    │   └── services/     # Serviços de API
+    ├── public/
+    └── package.json
+```
+
+---
+
+## ⚙️ Pré-requisitos
+
+Antes de configurar o projeto, certifique-se de ter os seguintes itens instalados:
+
+- **Node.js** (versão 18 ou superior)
+- **npm** ou **yarn**
+- **Docker** e **Docker Compose**
+- **Git**
+
+---
+
+## 🔧 Configuração do Ambiente
+
+### 1. Clone o repositório
+
+```bash
+git clone https://github.com/<seu-usuario>/yduqs-portais-desafio-fullstack.git
+cd yduqs-portais-desafio-fullstack
+```
+
+### 2. Configuração do Backend
+
+#### Acesse o diretório backend:
+
+```bash
+cd backend
+```
+
+#### Instale as dependências:
+
+```bash
+npm install
+```
+
+#### Crie o arquivo `.env` na raiz do backend com o seguinte conteúdo:
+
+```env
+DATABASE_URL="postgresql://postgres:prisma123@localhost:5432/yduqs_desafio"
+```
+
+### 3. Configuração do Frontend
+
+#### Acesse o diretório frontend:
+
+```bash
+cd ../frontend  # ou cd /path/to/frontend
+```
+
+#### Instale as dependências:
+
+```bash
+npm install
+```
+
+---
+
+## 🚀 Executando a Aplicação
+
+### 1. Iniciar o banco de dados com Docker
+
+Na raiz do backend:
+
+```bash
+# Iniciar o PostgreSQL e pgAdmin
+docker-compose up -d
+```
+
+### 2. Configurar o banco de dados
+
+```bash
+# Gerar o cliente Prisma
+npx prisma generate
+
+# Aplicar as migrations
+npx prisma migrate dev
+```
+
+### 3. Executar o Backend
+
+Na pasta `backend`:
+
+```bash
+# Executar em modo de desenvolvimento (com recarga automática)
+npm run start:dev
+```
+
+O backend estará disponível em `http://localhost:3000` e a documentação da API em `http://localhost:3000/api`.
+
+### 4. Executar o Frontend
+
+Em uma nova janela/aba do terminal, na pasta `frontend`:
+
+```bash
+# Iniciar o servidor de desenvolvimento
+npm run dev
+```
+
+O frontend estará disponível em `http://localhost:5173` (ou conforme mostrado no terminal).
+
+---
+
+## 🧪 Testes
+
+### Backend
+
+Na pasta `backend`, execute:
+
+```bash
+# Testes unitários
+npm run test
+
+# Testes unitários em modo watch
+npm run test:watch
+
+# Relatório de cobertura de testes
+npm run test:cov
+
+# Testes de ponta a ponta (e2e)
+npm run test:e2e
+```
+
+### Frontend
+
+Na pasta `frontend`, execute:
+
+```bash
+# Executar testes (se implementados)
+npm run test
+```
+
+---
+
+## 📚 Documentação da API
+
+A API do backend é documentada com Swagger e está disponível em:
+
+`http://localhost:3000/api`
+
+A documentação inclui endpoints interativos com exemplos de requisições e respostas.
+
+### Endpoints Disponíveis
+
+#### Gerenciamento de Usuários
+
+- **POST** `/user` - Criar um novo usuário com validação completa
+- **DELETE** `/user` - Excluir todos os usuários (para fins de desenvolvimento)
+
+**Validações incluídas:**
+- Email deve ser válido
+- CPF deve ser válido (11 dígitos)
+- Campos obrigatórios: nome, aniversário, data de formatura, celular
+- Formatos de data: DD/MM/AAAA
+
+---
+
+## 🏗️ Padrões de Arquitetura
+
+### Backend (NestJS)
+
+- **Arquitetura em camadas**: controllers, services, repositories
+- **Injeção de dependência**: para fácil testabilidade e manutenção
+- **Validação com DTOs**: usando class-validator para validações de entrada
+- **Modularização**: módulos separados para diferentes domínios da aplicação
+
+### Frontend (React)
+
+- **Componentização**: componentes reutilizáveis e bem estruturados
+- **Gerenciamento de estado**: com Redux Toolkit
+- **Roteamento**: com React Router DOM
+- **Responsividade**: interfaces adaptáveis a diferentes dispositivos
+- **Clean Code**: código limpo e bem documentado
+
+---
+
+## 🤝 Contribuição
+
+1. Faça um **fork** do projeto
+2. Crie uma **branch** para sua feature (`git checkout -b feature/nova-feature`)
+3. Faça **commits** descritivos (`git commit -m 'Adiciona nova feature'`)
+4. Faça **push** para a branch (`git push origin feature/nova-feature`)
+5. Abra um **Pull Request**
+
+---
+
+## 📄 Licença
+
+Este projeto está licenciado sob a [licença MIT](LICENSE).
+
+---
+
+## 👨‍💻 Autor
+
+Desafio Fullstack - Processo Seletivo YDUQS Portais
+
+---
+
+<p align="center">Desenvolvido com ❤️ para o processo seletivo da YDUQS</p>
