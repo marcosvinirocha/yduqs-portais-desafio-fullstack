@@ -26,7 +26,9 @@
 
 ## 🎯 Sobre o Projeto
 
-Esta é uma aplicação fullstack desenvolvida como parte do processo seletivo da YDUQS. O objetivo é construir uma plataforma onde os usuários podem visualizar ofertas de cursos, selecionar um curso e realizar a matrícula. O projeto é composto por um backend em NestJS e um frontend em React, com banco de dados PostgreSQL.
+Esta é uma aplicação fullstack desenvolvida como parte do processo seletivo da YDUQS. O objetivo é construir uma plataforma onde os usuários podem visualizar ofertas de cursos, selecionar um curso e realizar a matrícula. Este repositório contém o frontend da aplicação em React, enquanto o backend está em um repositório separado, implementado em NestJS com banco de dados PostgreSQL.
+
+> **ℹ️ Acesse o backend do projeto:** https://github.com/marcosvinirocha/yduqs-portais-desafio-fullstack-backend
 
 **Recursos principais:**
 - Autenticação e gerenciamento de usuários
@@ -40,6 +42,8 @@ Esta é uma aplicação fullstack desenvolvida como parte do processo seletivo d
 ## 🛠️ Tecnologias Utilizadas
 
 ### Backend
+O backend deste projeto está em um repositório separado e foi desenvolvido com:
+
 - **Node.js** (v18+)
 - **NestJS** - Framework para aplicações Node.js escaláveis
 - **TypeScript** - Superset do JavaScript com tipagem estática
@@ -48,6 +52,8 @@ Esta é uma aplicação fullstack desenvolvida como parte do processo seletivo d
 - **Swagger** - Documentação interativa da API
 - **Jest** - Framework de testes
 - **Docker** - Contêinerização de serviços
+
+> Acesse o repositório do backend para mais detalhes: https://github.com/marcosvinirocha/yduqs-portais-desafio-fullstack-backend
 
 ### Frontend
 - **React** (v19) - Biblioteca para construção de interfaces
@@ -63,16 +69,7 @@ Esta é uma aplicação fullstack desenvolvida como parte do processo seletivo d
 ## 🏗️ Estrutura do Projeto
 
 ```
-yduqs-portais-desafio-fullstack/
-├── backend/              # API REST com NestJS
-│   ├── src/
-│   │   ├── app.module.ts
-│   │   ├── user/         # Módulo de gerenciamento de usuários
-│   │   ├── db/           # Configuração do banco de dados
-│   │   └── main.ts
-│   ├── prisma/           # Configuração do Prisma e migrations
-│   ├── test/             # Testes unitários e e2e
-│   └── docker-compose.yml
+yduqs-portais-desafio-fullstack-frontend/
 └── frontend/             # Aplicação React
     ├── src/
     │   ├── components/   # Componentes reutilizáveis
@@ -82,6 +79,8 @@ yduqs-portais-desafio-fullstack/
     ├── public/
     └── package.json
 ```
+
+> **ℹ️ Nota:** O backend deste projeto está em um repositório separado. Para mais detalhes sobre a API e sua estrutura, acesse: https://github.com/marcosvinirocha/yduqs-portais-desafio-fullstack-backend
 
 ---
 
@@ -101,29 +100,15 @@ Antes de configurar o projeto, certifique-se de ter os seguintes itens instalado
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/<seu-usuario>/yduqs-portais-desafio-fullstack.git
-cd yduqs-portais-desafio-fullstack
+git clone https://github.com/<seu-usuario>/yduqs-portais-desafio-fullstack-frontend.git
+cd yduqs-portais-desafio-fullstack-frontend
 ```
 
 ### 2. Configuração do Backend
 
-#### Acesse o diretório backend:
+O backend deste projeto está em um repositório separado. Para configurar e executar o backend, acesse:
 
-```bash
-cd backend
-```
-
-#### Instale as dependências:
-
-```bash
-npm install
-```
-
-#### Crie o arquivo `.env` na raiz do backend com o seguinte conteúdo:
-
-```env
-DATABASE_URL="postgresql://postgres:prisma123@localhost:5432/yduqs_desafio"
-```
+[https://github.com/marcosvinirocha/yduqs-portais-desafio-fullstack-backend](https://github.com/marcosvinirocha/yduqs-portais-desafio-fullstack-backend)
 
 ### 3. Configuração do Frontend
 
@@ -143,39 +128,17 @@ npm install
 
 ## 🚀 Executando a Aplicação
 
-### 1. Iniciar o banco de dados com Docker
+### 1. Executar o Backend
 
-Na raiz do backend:
+O backend deste projeto está em um repositório separado. Para executar o backend, siga as instruções no repositório:
 
-```bash
-# Iniciar o PostgreSQL e pgAdmin
-docker-compose up -d
-```
-
-### 2. Configurar o banco de dados
-
-```bash
-# Gerar o cliente Prisma
-npx prisma generate
-
-# Aplicar as migrations
-npx prisma migrate dev
-```
-
-### 3. Executar o Backend
-
-Na pasta `backend`:
-
-```bash
-# Executar em modo de desenvolvimento (com recarga automática)
-npm run start:dev
-```
+[https://github.com/marcosvinirocha/yduqs-portais-desafio-fullstack-backend](https://github.com/marcosvinirocha/yduqs-portais-desafio-fullstack-backend)
 
 O backend estará disponível em `http://localhost:3000` e a documentação da API em `http://localhost:3000/api`.
 
-### 4. Executar o Frontend
+### 2. Executar o Frontend
 
-Em uma nova janela/aba do terminal, na pasta `frontend`:
+Na pasta raiz deste repositório (`frontend`), execute:
 
 ```bash
 # Iniciar o servidor de desenvolvimento
@@ -190,21 +153,9 @@ O frontend estará disponível em `http://localhost:5173` (ou conforme mostrado 
 
 ### Backend
 
-Na pasta `backend`, execute:
+Os testes do backend estão no repositório separado. Para executar os testes do backend, acesse:
 
-```bash
-# Testes unitários
-npm run test
-
-# Testes unitários em modo watch
-npm run test:watch
-
-# Relatório de cobertura de testes
-npm run test:cov
-
-# Testes de ponta a ponta (e2e)
-npm run test:e2e
-```
+[https://github.com/marcosvinirocha/yduqs-portais-desafio-fullstack-backend](https://github.com/marcosvinirocha/yduqs-portais-desafio-fullstack-backend)
 
 ### Frontend
 
@@ -224,6 +175,8 @@ A API do backend é documentada com Swagger e está disponível em:
 `http://localhost:3000/api`
 
 A documentação inclui endpoints interativos com exemplos de requisições e respostas.
+
+> **ℹ️** Para detalhes sobre os endpoints da API e sua documentação completa, acesse o repositório do backend: https://github.com/marcosvinirocha/yduqs-portais-desafio-fullstack-backend
 
 ### Endpoints Disponíveis
 
