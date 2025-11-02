@@ -2,7 +2,7 @@ import React from 'react';
 
 interface CardProps {
   title: string;
-  subtitle: string;
+  subtitle?: string;
 }
 
 export default function Cardinfo({ title, subtitle }: CardProps) {
