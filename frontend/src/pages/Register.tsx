@@ -19,6 +19,7 @@ import { Spinner } from '../components/ui/spinner';
 import FooterRegister from '../components/FooterRegister';
 import { useDispatch, useSelector } from 'react-redux';
 import type { AppDispatch, RootState } from '../store/store';
+import { sendUserData } from '../store/user/userSlice';
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -44,19 +45,32 @@ const formSchema = z.object({
 export default function Register() {
   const CardTitleInfo = 'Queremos saber um pouco mais sobre você';
 
-  // const dispatch = useDispatch<AppDispatch>();
-  // const { loading, success, error, data } = useSelector(
-  //   (state: RootState) => state.user
-  // );
+  const dispatch = useDispatch<AppDispatch>();
+  const { loading } = useSelector((state: RootState) => state.user);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       username: '',
+      cpf: '',
+      birthday: '',
+      email: '',
+      cellphone: '',
+      graduationYear: '',
     },
   });
   function onSubmit(values: z.infer<typeof formSchema>) {
     console.log(values);
+
+    try {
+      dispatch(sendUserData({ ...values, name: values.username })).unwrap();
+      form.reset();
+    } catch (error) {
+      if (error instanceof Error) {
+        console.log(error.message);
+      }
+    }
   }
+
   return (
     <div>
       <Cardinfo title={CardTitleInfo} isRegister={true} />
@@ -172,8 +186,8 @@ export default function Register() {
               </Label>
             </div>
           </div>
-          <Button className='mb-10' type='submit'>
-            <Spinner />
+          <Button className='mb-10 bg-blue-700 hover:bg-blue-800' type='submit'>
+            {loading && <Spinner />}
             Avançar
           </Button>
         </form>

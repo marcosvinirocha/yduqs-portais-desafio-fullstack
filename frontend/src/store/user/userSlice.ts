@@ -1,13 +1,18 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import api from '../../api/api';
+import {
+  createSlice,
+  createAsyncThunk,
+  type PayloadAction,
+} from '@reduxjs/toolkit';
+import api from '../../api/api'; // Seu cliente Axios
 import { AxiosError } from 'axios';
+import { toast } from 'sonner';
 
 interface UserData {
   email: string;
   birthday: string;
   name: string;
   cpf: string;
-  graduationDate: string;
+  graduationYear: string;
   cellphone: string;
 }
 
@@ -25,34 +30,60 @@ const initialState: UserState = {
   data: null,
 };
 
-// Envia os dados para o backend
-export const sendUserData = createAsyncThunk(
-  'user/sendUserData',
-  async (userData: UserData, { rejectWithValue }) => {
-    try {
-      const response = await api.post('/user', userData); // Ajuste o endpoint se necessário
-      return response.data;
-    } catch (error) {
-      const axiosError = error as AxiosError;
-      const message =
-        (axiosError.response?.data as { message?: string })?.message ||
-        (axiosError.response?.data as { error?: string })?.error ||
-        axiosError.message ||
-        'Falha ao enviar os dados. Tente novamente.';
-      return rejectWithValue(message);
-    }
+export const sendUserData = createAsyncThunk<
+  unknown,
+  UserData,
+  { rejectValue: string }
+>('user/sendUserData', async (payload: UserData, { rejectWithValue }) => {
+  try {
+    const response = await api.post('/user', payload);
+
+    toast.success('Cadastro realizado com sucesso!');
+
+    return response.data;
+  } catch (error) {
+    const message =
+      (error as AxiosError<{ message?: string }>)?.response?.data?.message ||
+      'Erro desconhecido ao enviar os dados.';
+
+    toast.error(message);
+
+    return rejectWithValue(message);
   }
-);
+});
 
 const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
     resetUserStatus: (state) => {
+      state.loading = false;
       state.success = false;
       state.error = null;
       state.data = null;
     },
+  },
+
+  extraReducers: (builder) => {
+    builder
+      .addCase(sendUserData.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+        state.success = false;
+      })
+      .addCase(sendUserData.fulfilled, (state, action) => {
+        state.loading = false;
+        state.success = true;
+        state.data = action.payload; // Dados retornados pelo backend
+      })
+      .addCase(
+        sendUserData.rejected,
+        (state, action: PayloadAction<string | undefined>) => {
+          state.loading = false;
+          state.success = false;
+          state.error = action.payload || 'Ocorreu um erro interno.';
+        }
+      );
   },
 });
 
